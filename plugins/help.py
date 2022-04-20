@@ -9,7 +9,10 @@ if bool(os.environ.get("ENV", False)):
 else:
     from config import Config
 
-
+@Client.on_message(filters.command(commands=['start'])) 
+  async def StartMsg(_, m): 
+           await client.send_sticker ( m . chat . id ,  sticker = 'CAACAgUAAxkBAAEEFqRiJ1qjgCoWTzXjh_wqGdFFHTQ9ZgACGgYAAqxnMVXZMzWdm-Jl-SME' )
+    
 @Client.on_message(filters.private & filters.command(['start', 'help']))
 async def help_me(bot, message):
     if message.from_user.id == Config.ADMIN:

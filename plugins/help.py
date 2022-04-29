@@ -11,7 +11,7 @@ else:
 
 @Client.on_message(filters.command(commands=['start'])) 
   async def StartMsg(_,m): 
-           await client.send_sticker(m.chat.id, sticker='CAADAgADaRsAAsOUWUpHrmf5mZp3EgI')
+  await client.send_sticker(m.chat.id, sticker='CAADAgADaRsAAsOUWUpHrmf5mZp3EgI')
     
 @Client.on_message(filters.private & filters.command(['start', 'help']))
 async def help_me(bot, message):

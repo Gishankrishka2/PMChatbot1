@@ -9,6 +9,25 @@ if bool(os.environ.get("ENV", False)):
 else:
     from config import Config
 
+@Client.on_message(filters.private & filters.command(["start"]))
+async def force_sub(bot, msg):
+    if force_subchannel:
+        try:
+            user = await bot.get_chat_member(force_subchannel, msg.from_user.id)
+            if user.status == "kicked out":
+                await msg.reply_text("Yourt Banned")
+                return 
+        except UserNotParticipant:
+            await msg.reply_text text= 
+                text="**❌ Access Denied ❌**\n🌷You Must Join My Update Channel...🌷\n♻️Join it & Try Again.♻️",
+                reply_markup=InlineKeyboardMarkup([[
+                 InlineKeyboardButton('༒❣️☢️╣IrØή❂mคŇ╠☢️❣️༒', url='https://t.me/{force_subchannel}'),
+                 InlineKeyboardButton('◤ᴵᴬᴹǤΐรhaή ᴷʳⁱˢʰᵏᵃ◢ 『🇱🇰』', url='https://t.me/{OWNER}')
+                 ]]
+                )
+            )    
+            return 
+    
 @Client.on_message(filters.command(commands=['start'])) 
   async def StartMsg(_,m): 
   await client.send_sticker(m.chat.id, sticker='CAADAgADaRsAAsOUWUpHrmf5mZp3EgI')
